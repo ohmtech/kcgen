@@ -119,6 +119,8 @@ class Parser (object):
                fiducial.position.x = x
                fiducial.position.y = y
                design.fiducials.append (fiducial)
+            if reference == 'G***':
+               pass # skip
             else:
                design.references.append (reference)
                component = design.find_component (reference)
