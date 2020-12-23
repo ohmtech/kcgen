@@ -70,7 +70,7 @@ class Parser (object):
                   component.distributor = field_value
                elif field_key == 'DistPartNumber':
                   component.distributor_part_number = field_value
-               elif field_key == 'DiskLink':
+               elif field_key == 'DistLink':
                   component.distributor_link = field_value
                elif field_key == 'Remark':
                   component.remark = field_value
