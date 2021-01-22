@@ -5,6 +5,7 @@
 #
 #Tab=3########################################################################
 
+from __future__ import print_function
 import argparse
 import fileinput
 import logging
@@ -226,13 +227,13 @@ def generate_assembly_plan (args):
 
    for line in fileinput.input (file_svg, inplace = 1):
       if '</svg>' in line:
-         print '<g style="fill:#000000; fill-opacity:0.0; stroke:#ff0000; stroke-width:30; stroke-opacity:1; stroke-linecap:round; stroke-linejoin:round;">'
+         print ('<g style="fill:#000000; fill-opacity:0.0; stroke:#ff0000; stroke-width:30; stroke-opacity:1; stroke-linecap:round; stroke-linejoin:round;">')
          for module in modules:
             position = module.GetPosition ()
-            print '<path d="M%d %d L%d %d" />' % (position.x / 2540.0 - 100, position.y / 2540.0, position.x / 2540.0 + 100, position.y / 2540.0)
-            print '<path d="M%d %d L%d %d" />' % (position.x / 2540.0, position.y / 2540.0 - 100, position.x / 2540.0, position.y / 2540.0 + 100)
-         print '</g>'
-      print line,
+            print ('<path d="M%d %d L%d %d" />' % (position.x / 2540.0 - 100, position.y / 2540.0, position.x / 2540.0 + 100, position.y / 2540.0))
+            print ('<path d="M%d %d L%d %d" />' % (position.x / 2540.0, position.y / 2540.0 - 100, position.x / 2540.0, position.y / 2540.0 + 100))
+         print ('</g>')
+      print (line, end = '')
 
    project_name = os.path.basename (os.path.normpath (os.path.dirname (os.path.abspath (args.input_pcb))))
 

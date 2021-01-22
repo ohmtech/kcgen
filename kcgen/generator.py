@@ -93,7 +93,7 @@ class Generator (object):
 
          output.write ('\n')
 
-         for key, component in design.components.iteritems ():
+         for key, component in design.components.items ():
             output.write (
                '%s\t%.2f\t%.2f\t%.2f\t%s\t%s\t%s\n' %
                (component.reference,

@@ -44,7 +44,7 @@ class Design (object):
       ret += 'date: %s\n' % self.date
       ret += 'outline: %s\n' % self.outline
       ret += 'components:\n'
-      for key, component in self.components.iteritems ():
+      for key, component in self.components.items ():
          ret += '%s\n' % component
       ret += 'fiducials:\n'
       for fiducial in self.fiducials:
@@ -54,7 +54,7 @@ class Design (object):
       return ret
 
    def find_component (self, reference):
-      for key, component in self.components.iteritems ():
+      for key, component in self.components.items ():
          if key == reference:
             return component
       return None
