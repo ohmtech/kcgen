@@ -10,12 +10,18 @@ import argparse
 import fileinput
 import logging
 import os
+import platform
 import subprocess
 import sys
 from .parser import Parser
 from .generator import Generator
 
-sys.path.insert(0, "/Applications/Kicad/kicad.app/Contents/Frameworks/python/site-packages/")
+if platform.system () == 'Darwin':
+   sys.path.insert(0, "/Applications/Kicad/kicad.app/Contents/Frameworks/python/site-packages/")
+
+elif platform.system () == 'Windows':
+   sys.path.insert(0, "C:/Program Files/KiCad/lib/python2.7/site-packages/")
+
 import pcbnew
 
 
