@@ -110,7 +110,7 @@ def generate_pcb_gerber (args):
    plot_options.SetUseAuxOrigin (False)
    plot_controller.SetColorMode (True)
 
-   plot_options.SetSubtractMaskFromSilk (False)
+   plot_options.SetSubtractMaskFromSilk (True)
    plot_options.SetPlotReference (True)
    plot_options.SetPlotValue (False)
 
