@@ -97,7 +97,11 @@ def generate_pcb_gerber (args):
    plot_options.SetOutputDirectory (output_dir)
    plot_options.SetPlotFrameRef (False)
 
-   plot_options.SetLineWidth (pcbnew.FromMM (0.1))
+   if hasattr (plot_options, 'SetLineWidth'):
+      # pre Kicad 6
+      plot_options.SetLineWidth (pcbnew.FromMM (0.1))
+   else:
+      plot_options.SetSketchPadLineWidth (pcbnew.FromMM (0.1))
 
    plot_options.SetAutoScale (False)
    plot_options.SetScale (1)
@@ -207,7 +211,12 @@ def generate_assembly_plan (args):
    plot_options = plot_controller.GetPlotOptions ()
    plot_options.SetOutputDirectory (args.output_dir)
    plot_options.SetPlotFrameRef (False)
-   plot_options.SetLineWidth (pcbnew.FromMM (0.1))
+
+   if hasattr (plot_options, 'SetLineWidth'):
+      # pre Kicad 6
+      plot_options.SetLineWidth (pcbnew.FromMM (0.1))
+   else:
+      plot_options.SetSketchPadLineWidth (pcbnew.FromMM (0.1))
 
    plot_options.SetAutoScale (False)
    plot_options.SetScale (1)
